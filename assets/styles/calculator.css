@@ -5,7 +5,7 @@ body {
   font-weight: 600;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: aliceblue;
-  /* margin: 0; */
+ 
   
 }
 
@@ -28,7 +28,7 @@ button {
   background-image: url("https://images.unsplash.com/photo-1604073337682-49380351f3ad?q=80&w=1964&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
   background-position: center;
   background-size: cover;
-  background-color: rgba(183, 178, 178, 0.548);
+  background-color: rgba(37, 36, 36, 0.408);
   background-blend-mode: multiply;
   box-shadow: 1px 1px 30px black;
 }

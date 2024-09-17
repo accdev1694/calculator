@@ -1,42 +1,31 @@
-// numEl = document.querySelector(".numerator");
-// operatorEl = document.querySelector(".operator");
-// denEl = document.querySelector(".denominator");
-// sevenEl = document.querySelector(".keys");
+let btnEl = document.querySelector("button");
+let numEl = document.querySelector(".numerator");
+let denEl = document.querySelector(".denominator");
+let operatorEl = document.querySelector(".operator");
+let resultEl = document.querySelector(".result");
+let operationEl = document.querySelector(".operation");
 
-
-
-// function numAction() {
-//   if (operatorEl.textContent) {
-//     denEl.textContent += sevenEl.textContent;
-//   } else {
-//     numEl.textContent += sevenEl.textContent;
-//   }
-//   return numEl.textContent
-// }
-numEl = document.querySelector(".numerator")
-operatorEl = document.querySelector(".operator")
-denEl = document.querySelector(".denominator")
-
-function keyAction(button) {
-  let entry = button.textContent
-  // 
-  if (entry == '.') {
-    if (!operatorEl.textContent && !denEl.textContent && !numEl.textContent) {
-      numEl.textContent = '0.'
-    } else if (operatorEl.textContent && numEl.textContent && !denEl.textContent){
-      denEl.textContent = '0.'
-    };
-  }
-
-
-  if (!isNaN(entry) || entry == '.') {
+function keyAction(btnEl) {
+  selectedBtn = btnEl.textContent;
+  charCount = 0;
+  if (!isNaN(selectedBtn)) {
     if (!operatorEl.textContent) {
-      numEl.textContent += entry
-    } else{
-      denEl.textContent += entry
-    };    
-  } else if (['*', '/', '-', '+'].includes(entry) ) {
-    operatorEl.textContent = entry
-  };  
+      numEl.textContent += selectedBtn;
+      charCount += 1;
+    } else {
+      denEl.textContent += selectedBtn;
+      charCount += 1;
+    }
+  } else if (["/", "*", "-", "+"].includes(selectedBtn)) {
+    if (numEl.textContent) {
+      operatorEl.textContent = selectedBtn;
+      charCount += 1;
+    }
+  } else if (selectedBtn === "C") {
+    // resultEl.textContent = "";
+    numEl.textContent = "";
+    denEl.textContent = "";
+    operatorEl.textContent = "";
+  
+  }
 }
-
