@@ -1,31 +1,27 @@
-let btnEl = document.querySelector("button");
-let numEl = document.querySelector(".numerator");
-let denEl = document.querySelector(".denominator");
-let operatorEl = document.querySelector(".operator");
-let resultEl = document.querySelector(".result");
-let operationEl = document.querySelector(".operation");
+function operationDisplay(
+  inputKey,
+  outputNum = ".numerator",
+  outputOperator = ".operator",
+  outputDen = ".denominator"
+) {
+  let inputEl = document.querySelector(inputKey);
 
-function keyAction(btnEl) {
-  selectedBtn = btnEl.textContent;
-  charCount = 0;
-  if (!isNaN(selectedBtn)) {
-    if (!operatorEl.textContent) {
-      numEl.textContent += selectedBtn;
-      charCount += 1;
-    } else {
-      denEl.textContent += selectedBtn;
-      charCount += 1;
+  inputEl.addEventListener("click", function (event) {
+    event.preventDefault();
+    let num = document.querySelector(outputNum);
+    let den = document.querySelector(outputDen);
+    let oper = document.querySelector(outputOperator);
+    if (!isNaN(inputEl.textContent)) {
+      if (!oper.textContent) {
+        if (num.textContent.length <= 5) {
+          num.textContent += inputEl.textContent;
+        }
+      } else {
+        if (den.textContent.length <= 5) {
+          den.textContent += inputEl.textContent;
+        }
+      }
     }
-  } else if (["/", "*", "-", "+"].includes(selectedBtn)) {
-    if (numEl.textContent) {
-      operatorEl.textContent = selectedBtn;
-      charCount += 1;
-    }
-  } else if (selectedBtn === "C") {
-    // resultEl.textContent = "";
-    numEl.textContent = "";
-    denEl.textContent = "";
-    operatorEl.textContent = "";
-  
-  }
+  });
 }
+operationDisplay("#key-one");

@@ -1,12 +1,12 @@
 html,
 body {
-  
   font-size: 25px;
   font-weight: 600;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   color: aliceblue;
- 
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 button {
@@ -41,12 +41,12 @@ button {
   border-radius: 10px;
   background-color: rgba(240, 248, 255, 0.112);
   border: solid 1px rgb(188, 188, 188);
-
 }
 
 .keys:hover {
   background-color: rgba(0, 0, 0, 0.386);
   border: solid 1px rgb(133, 129, 129);
+  box-shadow: 1px 1px 5px rgb(123, 83, 83);
 }
 
 .operation {
