@@ -42,16 +42,28 @@ function operationDisplay(
       den.textContent = "";
       num.textContent = "";
       oper.textContent = "";
-      resultEl.textContent = "";      
-    } else if(inputEl.textContent === "%") {
-      if (!oper.textContent && (num.textContent !== '0')) {
-        num.textContent = parseInt(num.textContent, 10)
-        resultEl.textContent = num.textContent/100
+      resultEl.textContent = "";
+    } else if (inputEl.textContent === "%") {
+      if (!oper.textContent && num.textContent !== "0") {
+        num.textContent = parseInt(num.textContent, 10);
+        resultEl.textContent = num.textContent / 100;
       }
     } else if (inputEl.textContent === ".") {
       if (oper.textContent) {
-        if ((den.textContent.length >= 1 && den.textContent.length < 4) && !den.textContent.includes('.')) {
-          den.textContent += inputEl.textContent;
+        if (den.textContent.length < 4 && !den.textContent.includes(".")) {
+          if (den.textContent === "") {
+            den.textContent = "0.";
+          } else {
+            den.textContent += inputEl.textContent;
+          }
+        }
+      } else if (!oper.textContent) {
+        if(num.textContent.length < 4 && !num.textContent.includes(".")) {
+          if (num.textContent === "") {
+            num.textContent = "0.";
+          }else {
+            num.textContent += inputEl.textContent;
+          }
         }
       }
     }
