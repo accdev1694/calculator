@@ -1,3 +1,4 @@
+//
 function operationDisplay(
   inputKey,
   outputNum = ".numerator",
@@ -58,12 +59,33 @@ function operationDisplay(
           }
         }
       } else if (!oper.textContent) {
-        if(num.textContent.length < 4 && !num.textContent.includes(".")) {
+        if (num.textContent.length < 4 && !num.textContent.includes(".")) {
           if (num.textContent === "") {
             num.textContent = "0.";
-          }else {
+          } else {
             num.textContent += inputEl.textContent;
           }
+        }
+      }
+    } else if (inputEl.textContent === "=") {
+      if (num.textContent && den.textContent && oper.textContent) {
+        if (oper.textContent === "+") {
+          let numerator = parseFloat(num.textContent, 10);
+          let denominator = parseFloat(den.textContent, 10);
+          resultEl.textContent = numerator + denominator;
+        } else if (oper.textContent === "-") {
+          let numerator = parseFloat(num.textContent, 10);
+          let denominator = parseFloat(den.textContent, 10);
+          resultEl.textContent = numerator - denominator;
+        } else if (oper.textContent === "/") {
+          let numerator = parseFloat(num.textContent, 10);
+          let denominator = parseFloat(den.textContent, 10);
+          let result = (numerator / denominator).toFixed(4);
+          resultEl.textContent = result;
+        } else if (oper.textContent === "*") {
+          let numerator = parseFloat(num.textContent, 10);
+          let denominator = parseFloat(den.textContent, 10);
+          resultEl.textContent = numerator * denominator;
         }
       }
     }
@@ -87,3 +109,4 @@ operationDisplay("#key-c");
 operationDisplay("#delete");
 operationDisplay("#percent");
 operationDisplay("#key-point");
+operationDisplay("#equals");
